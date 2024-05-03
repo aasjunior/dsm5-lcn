@@ -1,0 +1,97 @@
+\documentclass[12pt,a4paper,brazil,openany,oneside]{abntex2}
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[alf]{abntex2cite}
+\usepackage[top=3cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+\usepackage{float}
+\usepackage[bottom]{footmisc}
+
+\input{variables}
+
+\fancypagestyle{mystyle}{ % Define um novo estilo de página
+  \fancyhf{} % Limpa os cabeçalhos e rodapés
+  \renewcommand{\headrulewidth}{0pt} % Remove a linha do cabeçalho
+  \rfoot{\thepage} % Adiciona a numeração de página no rodapé direito
+}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{%
+    \begin{tabular}{c|l}
+        \raisebox{-0.9cm}{\includegraphics[height=2cm]{Logos/fatec.jpg}} &
+        \begin{tabular}{l}
+            \textbf{\MECName}\\
+            \fatecName\\
+            \campus\\
+            \curso
+        \end{tabular}
+    \end{tabular}
+}
+\renewcommand{\headrulewidth}{0.2pt} % Linha abaixo do cabeçalho
+\renewcommand{\footrulewidth}{0pt} % Sem linha no rodapé
+
+\begin{titlepage}
+    \thispagestyle{fancy} % Aplica o estilo fancy nesta página
+    \begin{center}
+        \vspace*{\fill}
+        \textbf{\LARGE \faculdade}\\[0.5cm]
+        \textbf{\Large \curso}\\[0.5cm]
+        \textbf{\large \nomeAutor}\\[0.5cm]
+        \emailAutor\\[0.5cm]
+        \vfill
+        \textbf{\LARGE \tituloTrabalho}\\[0.5cm]
+        \vfill
+        \textbf{\large \cidade}\\[0.5cm]
+        \textbf{\large \the\year}
+        \vspace*{\fill}
+    \end{center}
+\end{titlepage}
+
+\newpage
+\begin{titlepage}
+    \begin{center}
+        \vspace*{\fill}
+        \textbf{\large \nomeAutor}\\[0.5cm]
+        \textbf{\Large \tituloTrabalho}\\[0.5cm]
+        \vfill
+        \begin{flushright}
+            \begin{minipage}{0.5\textwidth}
+                Trabalho apresentado ao curso de \curso, da \faculdade, na disciplina de \disciplina.\\[0.5cm]
+            \end{minipage}
+        \end{flushright}
+        \vfill
+        \textbf{\large \fatecName\ \campus}\\[0.5cm]
+        \textbf{\large \curso}\\[0.5cm]
+        \textbf{\large \disciplina}\\[0.5cm]
+        \vfill
+        \orientadorTrabalho\\[0.5cm]
+        \vfill
+        \textbf{\large \cidade \ - \BRName}\\[0.5cm]
+        \textbf{\large \the\year}
+        \vspace*{\fill}
+    \end{center}
+\end{titlepage}
+
+\newpage
+\pagestyle{empty} % Remove o cabeçalho e o rodapé
+\pagenumbering{gobble} % Remove a numeração das páginas
+\tableofcontents
+
+\chapter{\MakeUppercase{Introdução}}
+\thispagestyle{mystyle}
+\pagenumbering{arabic} % Reinicia a numeração das páginas e muda o estilo para números arábicos
+\input{Topicos/introducao}
+
+\chapter{\MakeUppercase{Fundamentos dos Sistemas Imunológicos Artificiais}}
+\thispagestyle{mystyle}
+\input{Topicos/fundamentos}
+
+\chapter{\MakeUppercase{Conclusão}}
+\thispagestyle{mystyle}
+\input{Topicos/conclusao}
+
+\bibliography{Referencias/sbc-template}
+
+\end{document}
